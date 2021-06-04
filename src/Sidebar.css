@@ -46,6 +46,11 @@
     padding:10px;
 
 }
+.sidebar__chats{
+    flex:1;
+    background-color: rgb(238, 242, 243);
+    overflow:scroll;
+}
 
 
 
