@@ -4,13 +4,23 @@ import { Avatar, IconButton} from '@material-ui/core';
 import { SearchOutlined } from '@material-ui/icons'
 import AttachmentIcon from '@material-ui/icons/Attachment';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import MicIcon from '@material-ui/icons/Mic';
+// https://material-ui.com/components/material-icons/#material-icons
 
 function Chat() {
     const [seed,setSeed]= useState("")
+    const [input,setInput]= useState("");
     useEffect(()=>{
         setSeed(Math.floor(Math.random()*1000));
 
     },[])
+
+    const sendMessage=(e)=>{
+        e.preventDefault();
+        console.log("you typed....",input)
+
+    }
     return (
         <div className="chat">
 
@@ -50,7 +60,7 @@ function Chat() {
                     <span className="chat__name">Sumit</span>
                     Awesome..........
                     <span className="chat__timestamp">
-                        4:100 Am
+                        4:10 Am
                     </span>
 
 
@@ -59,6 +69,11 @@ function Chat() {
 
             </div>
             <div className="chat__footer">
+                <IconButton> <InsertEmoticonIcon /></IconButton>
+                <form><input  value ={input} onChange={(e) => setInput(e.target.value)} placeholder="Type a message to be send...." type="text" /><button onClick={sendMessage}>Send</button></form>
+                <IconButton><MicIcon /></IconButton>
+                
+
 
             </div>
             
